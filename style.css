@@ -1,55 +1,77 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f8f9fa;
-    color: #343a40;
+    font-family: 'Open Sans', sans-serif;
+    background-color: #121212;
+    color: #e0e0e0;
     margin: 0;
-    padding: 20px;
+    padding: 0;
 }
 
 header {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 20px;
     text-align: center;
-    margin-bottom: 20px;
     position: relative;
 }
 
 #upload-btn {
     position: absolute;
-    top: 20px;
+    top: 50%;
     left: 20px;
+    transform: translateY(-50%);
     padding: 10px 20px;
+    background-color: #333;
+    color: #e0e0e0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#upload-btn:hover {
+    background-color: #555;
 }
 
 main {
     display: flex;
     justify-content: center;
+    padding: 20px;
 }
 
 #recipes-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 20px;
 }
 
 .recipe-card {
-    border: 1px solid #ced4da;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
     width: 300px;
-    background-color: #fff;
     position: relative;
+    transition: transform 0.2s ease-in-out;
+}
+
+.recipe-card:hover {
+    transform: translateY(-10px);
 }
 
 .recipe-card img {
     max-width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
+    margin-bottom: 15px;
 }
 
 .recipe-card h3 {
-    margin-top: 0;
+    margin: 0 0 10px;
+    color: #1abc9c;
 }
 
-.recipe-card p{
+.recipe-card p {
     overflow-wrap: break-word;
 }
 
@@ -58,10 +80,27 @@ main {
     position: absolute;
     top: 10px;
     right: 10px;
+    background: rgba(31, 31, 31, 0.8);
+    border-radius: 5px;
 }
 
 .recipe-card:hover .card-buttons {
-    display: block;
+    display: flex;
+    gap: 5px;
+}
+
+.card-buttons button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    font-size: 14px;
+}
+
+.card-buttons button:hover {
+    background-color: #16a085;
 }
 
 .popup {
@@ -77,13 +116,15 @@ main {
 }
 
 .popup-content {
-    background-color: #fff;
+    background-color: #1f1f1f;
     margin: 10% auto;
     padding: 20px;
-    border: 1px solid #888;
+    border-radius: 10px;
     width: 80%;
     max-width: 500px;
     position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
 }
 
 .close-btn {
@@ -92,14 +133,32 @@ main {
     right: 10px;
     font-size: 20px;
     cursor: pointer;
+    color: #1abc9c;
 }
 
 form {
     display: flex;
     flex-direction: column;
+    gap: 10px;
 }
 
 form input, form textarea, form button {
-    margin-bottom: 10px;
     padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background-color: #333;
+    color: #e0e0e0;
+    font-size: 16px;
+}
+
+form button {
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #16a085;
 }
