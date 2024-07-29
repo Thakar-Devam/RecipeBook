@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault();
 
         const name = document.getElementById('recipe-name').value;
-        const ingredients = document.getElementById('recipe-ingredients').value;
+        const ingredients = Array.from(document.querySelectorAll('#ingredients-container .ingredient-input')).map(input => input.value);
         const text = document.getElementById('recipe-text').value;
         const imageInput = document.getElementById('recipe-image');
         const reader = new FileReader();
@@ -57,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const id = document.getElementById('edit-id').value;
         const name = document.getElementById('edit-name').value;
-        const ingredients = document.getElementById('edit-ingredients').value;
+        const ingredients = Array.from(document.querySelectorAll('#edit-ingredients-container .ingredient-input')).map(input => input.value);
         const text = document.getElementById('edit-text').value;
         const imageInput = document.getElementById('edit-image');
         let image;
@@ -94,13 +94,18 @@ document.addEventListener('DOMContentLoaded', () => {
         recipeCard.innerHTML = `
             <img src="${recipe.image}" alt="${recipe.name}">
             <h3>${recipe.name}</h3>
-            <p>${recipe.ingredients}</p>
+            <p>${recipe.ingredients.join(', ')}</p>
             <p>${recipe.text}</p>
             <div class="card-buttons">
                 <button onclick="editRecipe(${recipe.id})">Edit</button>
                 <button onclick="deleteRecipe(${recipe.id})">Delete</button>
             </div>
         `;
+        recipeCard.addEventListener('click', (event) => {
+            if (event.target.tagName !== 'BUTTON') {
+                window.location.href = `recipe.html?id=${recipe.id}`;
+            }
+        });
         recipesContainer.appendChild(recipeCard);
     }
 
@@ -109,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const recipe = recipes.find(recipe => recipe.id == id);
         document.getElementById('edit-id').value = recipe.id;
         document.getElementById('edit-name').value = recipe.name;
-        document.getElementById('edit-ingredients').value = recipe.ingredients;
+        document.getElementById('edit-ingredients-container').innerHTML = recipe.ingredients.map(ingredient => `<input type="text" class="ingredient-input" value="${ingredient}" required>`).join('');
         document.getElementById('edit-text').value = recipe.text;
         editPopup.style.display = 'block';
     }

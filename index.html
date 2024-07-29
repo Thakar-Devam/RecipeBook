@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recipe App</title>
-    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -25,7 +25,10 @@
             <h2>Add Recipe</h2>
             <form id="recipe-form">
                 <input type="text" id="recipe-name" placeholder="Recipe Name" required>
-                <textarea id="recipe-ingredients" placeholder="Ingredients" required></textarea>
+                <div id="ingredients-container">
+                    <input type="text" class="ingredient-input" placeholder="Ingredient" required>
+                </div>
+                <button type="button" id="add-ingredient-btn">Add Ingredient</button>
                 <textarea id="recipe-text" placeholder="Recipe Text" required></textarea>
                 <input type="file" id="recipe-image" accept="image/*" required>
                 <button type="submit">Add Recipe</button>
@@ -40,7 +43,10 @@
             <form id="edit-form">
                 <input type="hidden" id="edit-id">
                 <input type="text" id="edit-name" placeholder="Recipe Name" required>
-                <textarea id="edit-ingredients" placeholder="Ingredients" required></textarea>
+                <div id="edit-ingredients-container">
+                    <input type="text" class="ingredient-input" placeholder="Ingredient" required>
+                </div>
+                <button type="button" id="edit-add-ingredient-btn">Add Ingredient</button>
                 <textarea id="edit-text" placeholder="Recipe Text" required></textarea>
                 <input type="file" id="edit-image" accept="image/*">
                 <button type="submit">Save Changes</button>
@@ -48,6 +54,6 @@
         </div>
     </div>
 
-    <script src="/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>

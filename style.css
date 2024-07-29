@@ -54,6 +54,7 @@ main {
     width: 300px;
     position: relative;
     transition: transform 0.2s ease-in-out;
+    cursor: pointer;
 }
 
 .recipe-card:hover {
@@ -161,4 +162,59 @@ form button {
 
 form button:hover {
     background-color: #16a085;
+}
+
+#ingredients-container, #edit-ingredients-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#add-ingredient-btn, #edit-add-ingredient-btn {
+    padding: 10px;
+    background-color: #1abc9c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+#add-ingredient-btn:hover, #edit-add-ingredient-btn:hover {
+    background-color: #16a085;
+}
+
+#recipe-details {
+    background-color: #1f1f1f;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 100%;
+    max-width: 800px;
+}
+
+.recipe-content {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+
+.recipe-content img {
+    max-width: 40%;
+    border-radius: 10px;
+}
+
+.recipe-details {
+    max-width: 60%;
+}
+
+.recipe-details h3 {
+    margin-top: 0;
+    color: #1abc9c;
+}
+
+.recipe-details ul {
+    list-style-type: disc;
+    margin-left: 20px;
 }
